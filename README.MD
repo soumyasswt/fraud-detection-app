@@ -14,3 +14,7 @@ This Streamlit app helps detect fraudulent transactions using a trained ML model
 .\venv\Scripts\Activate
 pip install -r requirements.txt
 streamlit run app.py
+
+## 🚀 Try the App
+https://detect-banking-fraud.streamlit.app/
+
