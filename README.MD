@@ -75,7 +75,7 @@ Detect fraudulent banking transactions in real time with the power of Machine Le
 pip install -r requirements.txt
 streamlit run app.py
 
-### 🧪 Try with Example Data
+## 🧪 Try with Example Data
 
 You can download and test the app using our sample dataset below:
 
