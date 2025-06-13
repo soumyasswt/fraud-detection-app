@@ -71,14 +71,24 @@ if not all_data.empty:
         return False
 
     frauds = all_data[all_data[target_col].apply(is_fraud_row)]
+    # ---- Searchable Fraud Table ----
+    st.subheader("🔎 Fraud Analysis Dashboard")
+    
+    search_term = st.text_input("🔍 Search fraud table (by any keyword, e.g. account, merchant, etc.):", "")
 
-    st.subheader("📿 Interactive Fraudulent Transactions")
-    gb = GridOptionsBuilder.from_dataframe(frauds)
+    if search_term:
+        filtered_frauds = frauds[frauds.apply(lambda row: row.astype(str).str.contains(search_term, case=False).any(), axis=1)]
+    else:
+        filtered_frauds = frauds
+
+    gb = GridOptionsBuilder.from_dataframe(filtered_frauds)
     gb.configure_default_column(filterable=True, sortable=True, resizable=True)
     gridOptions = gb.build()
-    AgGrid(frauds, gridOptions=gridOptions, enable_enterprise_modules=False)
 
-    st.download_button("📅 Download Fraud Table", data=frauds.to_csv(index=False).encode('utf-8'),
+    AgGrid(filtered_frauds, gridOptions=gridOptions, enable_enterprise_modules=False)
+
+    # ---- Download Button ----
+    st.download_button("📅 Download Fraud Table", data=filtered_frauds.to_csv(index=False).encode('utf-8'),
                        file_name='fraud_cases.csv', mime='text/csv')
 
     st.markdown("## 🧠 Fraud Summary & Explanation")
