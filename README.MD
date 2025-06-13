@@ -79,5 +79,5 @@ streamlit run app.py
 
 You can download and test the app using our sample dataset below:
 
-- 📄 [example dataset](data/Fraud Detection Dataset.csv)
+- 📄 [example dataset](data/Fraud_Dataset.csv)
 
