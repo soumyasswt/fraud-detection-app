@@ -65,6 +65,12 @@ Detect fraudulent banking transactions in real time with the power of Machine Le
 ---
 
 
+## 🧪 Try with Example Data
+
+You can download and test the app using our sample dataset below:
+
+- 📄 [example dataset](data/Fraud_Dataset.csv)
+
 ## Run Locally
 
 ```bash
@@ -73,10 +79,4 @@ pip install -r requirements.txt
 streamlit run app.py
 
 ---
-
-## 🧪 Try with Example Data
-
-You can download and test the app using our sample dataset below:
-
-- 📄 [example dataset](data/Fraud_Dataset.csv)
 
